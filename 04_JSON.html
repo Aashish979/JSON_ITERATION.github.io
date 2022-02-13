@@ -1,0 +1,161 @@
+<!-- JSON Iteration.... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Document</title>
+	<style>
+
+
+		*{
+			box-sizing: :border-box;
+			font-family: "Comic-sands-serif" , sans-serif;
+			padding:0;
+			margin: 0;
+		}
+
+		body{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			}
+
+
+		div{
+			height: 500px;
+		/*	overflow: auto;*/
+			margin-top: 15px;
+		}
+
+		h3{
+			
+			color:rgb(18, 21, 204);
+			padding : 15px 30px;
+			text-align: center;
+		}
+
+		#table
+		{	
+			margin: 20px auto;
+			border-collapse: collapse;
+			border:1px solid #dddddd;
+			cursor: pointer;
+		}
+
+		th,td
+		{
+			border-bottom: 1px solid #dddddd;
+			padding: 28px 50px;
+			font-size: 14px;
+		}
+
+		th{
+			position: sticky;
+			top: 0;
+			background-color: rgba(0,0,0,0.8);
+			color:white;
+			font-size: 15px;
+			font-weight: 800;
+			}
+
+			tr:hover{
+				background-color: #dddddd;
+				color:green;
+			}
+
+
+		
+
+		@media screen and (max-width : 600px)
+		{
+			#table{
+				width: 300px;
+			}
+
+			th,td
+			{
+				padding:10px;
+			}	
+
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<!-- JSON ITERATION -->
+	<div>
+
+		<h3>USERS JSON ITERATION</h3>
+
+		<table id="table">
+
+		</table>
+
+	</div>
+
+
+	<script>
+		let users = [
+		{"id": 1 , "name":"Ram", "city":"Kanpur", "state":"U.P" , "pincode" : 208007},
+		{"id": 2 , "name":"Ramesh", "city":"Goa", "state":"Goa" , "pincode" : 208007},
+		{"id": 3 , "name":"Ashish", "city":"Mumbai", "state":"Maharastra" , "pincode" : 208007},
+		{"id": 4 , "name":"Akash", "city":"Delhi", "state":"Punjab" , "pincode" : 208007},
+		{"id": 5 , "name":"Ritika", "city":"Lucknow", "state":"U.P" , "pincode" : 208007},
+		{"id": 6 , "name":"Sanjana", "city":"Agra", "state":"U.P" , "pincode" : 208007},
+		{"id": 7 , "name":"YuvRaj", "city":"Ranchi", "state":"Jharkhand" , "pincode" : 208007},
+		{"id": 8 , "name":"Dhoni", "city":"Mumbai", "state":"Maharastra" , "pincode" : 208007},
+
+		];
+
+
+		records = "";
+		if(users.length>0)
+		{
+			var headings = Object.keys(users[0]);
+
+			//console.log(headings); && //console.log(users);
+
+			records += "<tr>";
+			for(let i = 0; i < headings.length; i++)
+			{
+				records += "<th>" +headings[i].toUpperCase()+ "</th>";
+			}
+			records += "</tr>";
+
+			for(let j=0 ; j<users.length; j++)
+			{
+
+				// records += "<tr>";
+				// records += "<td>" +users[j].id+ "</td>";          //Also Work..
+				// records += "<td>" +users[j].name+ "</td>";
+				// records += "<td>" +users[j].city+ "</td>";
+				// records += "<td>" +users[j].state+ "</td>";
+				// records += "<td>" +users[j].pincode+ "</td>";
+				// records += "</tr>"; 
+
+				records += "<tr>";
+				for(let k=0 ; k<headings.length ; k++ )
+				{
+					records += "<td>" +users[j][headings[k]]+ "</td>";    //Reusable logic..
+				}
+				records += "</tr>";
+
+			}
+
+
+		}
+		else
+		{
+			records += "Sorry..!No Records Found.";
+		}
+
+		document.querySelector('#table').innerHTML = records ;
+
+
+
+	</script>
+
+</body>
+</html>

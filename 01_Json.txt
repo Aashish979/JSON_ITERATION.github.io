@@ -1,0 +1,47 @@
+JSON is use for sending the data to one location to another location..(mean one language to another langauge.)
+
+
+----------------
+
+Some Points about JSON=>
+
+1) Exchanging data between  a browser and a server.
+
+2) Json data shoould be text only nothing buttext format.
+
+3) We can convert JSON data into  javascript object.
+
+4) We can convert Javascript object into JSON.
+
+5) Abbreviation of JSON => Javascript Object Notation.
+
+
+-----------------
+
+Javascript Object Be Like=>
+
+var obj = {name:"Ram", city:"kanpur", state:"U.P"};
+
+-----------------
+
+JSON String Be Like=>
+
+var str = {"name":"Ram", "city":"kanpur", "state":"U.P"}
+
+------------------
+
+
+Extension of JSON => .json
+
+
+----------------------------
+
+JSON METHOD=>
+
+1) JSON.parse();  =>  By using this method we can convert JSON data into javascript object.
+
+2) JSON.stringify(); =>  By using this method we can convert javascript object into JSON string.
+
+
+
+
